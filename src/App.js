@@ -5,7 +5,7 @@ import { useEffect,useState,useRef } from 'react';
 const url ="ws://ewon-vpn.ddns.net:8200/api/ws/plugins/telemetry?token=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YW4ubmd1eWVuQGF1Y29udGVjaC5jb20iLCJ1c2VySWQiOiJkNzkzMzMxMC04MDYzLTExZWUtODkzNC04OTVlN2NhMDhmYWIiLCJzY29wZXMiOlsiVEVOQU5UX0FETUlOIl0sInNlc3Npb25JZCI6IjJiZjM1ZjE2LWVmMWEtNGI4Zi1hNTIxLTBhMzRkOGY2MWQ2NyIsImlzcyI6InRoaW5nc2JvYXJkLmlvIiwiaWF0IjoxNzAwNzIyMTQ2LCJleHAiOjE3MDA3MzExNDYsImZpcnN0TmFtZSI6IlRhbiIsImxhc3ROYW1lIjoiTmd1eWVuIiwiZW5hYmxlZCI6dHJ1ZSwiaXNQdWJsaWMiOmZhbHNlLCJ0ZW5hbnRJZCI6ImIwNTU2YzUwLTgwNjMtMTFlZS04OTM0LTg5NWU3Y2EwOGZhYiIsImN1c3RvbWVySWQiOiIxMzgxNDAwMC0xZGQyLTExYjItODA4MC04MDgwODA4MDgwODAifQ.lLxjzsdsRmcEp2kjSg7vy4C69gEdZHwGmUjt3Uy5U5C0jckKzSvby3bqvdtOI2lXWuvCPAFp8F87Nd3fPIVWCA";
 function App() {
 const ws = useRef(null);
-const [data, setData] =useState([]);
+const [data, setData] = useState([]);
 
 useEffect(()=>{
    ws.current = new WebSocket(url);
@@ -73,7 +73,7 @@ useEffect(()=>{
               keys: [
                   "Tank_Pressure_AI"
               ],
-              startTs: 1700722178000,
+              startTs: unixTimeSeconds,
               timeWindow: 61000,
               interval: 1000,
               limit: 25000,
